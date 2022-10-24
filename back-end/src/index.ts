@@ -6,7 +6,7 @@ import Routes from "./routes";
 dotenv.config();
 
 const corsOptions: CorsOptions = {
-  origin: process.env.WEBAPP_URL || "http://http://127.0.0.1:5173",
+  origin: "*", //process.env.WEBAPP_URL || "http://http://127.0.0.1:5173",
   optionsSuccessStatus: 200,
   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
 };
