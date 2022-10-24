@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  frontend:
+    image: deploy-docker/frontend
+    container_name: frontend
+    env_file: ./back-end/.env
+    ports:
+      - "80:8080"
+  backend:
+    image: deploy-docker/backend
+    container_name: backend
+    env_file: ./front-end/.env
+    ports:
+      - "3333:3333"
+    depends_on:
+      - database
+  database:
+    image: postgres:13
+    restart: always
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+networks:
+  docker-deploy:
+volumes:
+  shared:
