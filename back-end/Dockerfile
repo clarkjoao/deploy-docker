@@ -23,4 +23,4 @@ RUN npm install --omit=dev --no-audit
 
 EXPOSE 3333
 
-CMD node build/src/index.js
+CMD node build/src/server.js
